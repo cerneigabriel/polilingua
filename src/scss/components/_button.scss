@@ -1,0 +1,182 @@
+.#{$prefix} {
+	&_button {
+
+		outline:       0;
+		background:    none;
+		border:        none;
+		cursor:        pointer;
+		padding:       0.7rem 0.8rem;
+		font-size:     14px;
+		font-weight:   400;
+		border-radius: 4px;
+		transition:    $transition_timeout;
+
+		display:       inline-flex;
+		align-items:   center;
+
+
+		&_link {
+			color: $pl_button_link_color;
+
+
+			&:hover {
+				color: $pl_button_link_color__hover;
+			}
+		}
+
+
+		&_primary {
+			border:           2px solid $pl_button_primary_border;
+			background-color: $pl_button_primary_bg;
+			color:            $pl_button_primary_color;
+
+
+			&:hover {
+				border:           2px solid $pl_button_primary_border__hover;
+				background-color: $pl_button_primary_bg__hover;
+				color:            $pl_button_primary_color__hover;
+			}
+		}
+
+
+		&_secondary {
+			border:           2px solid $pl_button_secondary_border;
+			background-color: $pl_button_secondary_bg;
+			color:            $pl_button_secondary_color;
+
+
+			&:hover {
+				border:           2px solid $pl_button_secondary_border__hover;
+				background-color: $pl_button_secondary_bg__hover;
+				color:            $pl_button_secondary_color__hover;
+			}
+		}
+
+
+		&_grey {
+			border:           2px solid $pl_button_grey_border;
+			background-color: $pl_button_grey_bg;
+			color:            $pl_button_grey_color;
+
+
+			&:hover {
+				border:           2px solid $pl_button_grey_border__hover;
+				background-color: $pl_button_grey_bg__hover;
+				color:            $pl_button_grey_color__hover;
+			}
+		}
+
+
+		&_collapse {
+			$button_collapse_selector: &;
+
+			border:                    1px solid $pl_button_collapse_border;
+			background-color:          $pl_button_collapse_bg;
+			color:                     $pl_button_collapse_color;
+
+
+			&-open,
+			&-close {
+				position:        relative;
+				width:           $pl_button_collapse_width;
+				height:          $pl_button_collapse_height;
+
+				display:         flex;
+				align-items:     center;
+				justify-content: center;
+
+				padding:         0.5rem;
+
+				border-radius:   50%;
+
+
+				&::before,
+				&::after {
+					position:         absolute;
+					top:              0;
+					left:             0;
+					right:            0;
+					bottom:           0;
+
+					width:            $pl_button_collapse_icon_width;
+					height:           $pl_button_collapse_icon_height;
+
+					margin:           auto;
+
+					background-color: $pl_button_collapse_color;
+
+					transition:       $transition_timeout;
+				}
+
+
+				&::after {
+					transform: rotateZ(90deg);
+				}
+			}
+
+
+			&-open {
+				&::before,
+				&::after {
+					content: "";
+				}
+			}
+
+
+			&-close {
+				&::before {
+					content: "";
+				}
+			}
+
+
+			&:hover {
+				border-color:     $pl_button_collapse_border__hover;
+				background-color: $pl_button_collapse_bg__hover;
+				color:            $pl_button_collapse_color__hover;
+
+
+				&::before,
+				&::after {
+					background-color: $pl_button_collapse_color__hover;
+					color:            $pl_button_collapse_color__hover;
+				}
+			}
+		}
+
+
+		&_follow {
+			border:           2px solid $pl_button_secondary_border;
+			border-radius:    50%;
+
+			background-color: $pl_button_secondary_bg;
+			color:            $pl_button_secondary_color;
+
+			padding:          0.9rem;
+
+			font-size:        1.1rem;
+
+			width:            50px;
+			height:           50px;
+
+			display:          inline-flex;
+			align-items:      center;
+			justify-content:  center;
+
+
+			&:hover {
+				border:           2px solid $pl_button_secondary_border__hover;
+				background-color: $pl_button_secondary_bg__hover;
+				color:            $pl_button_secondary_color__hover;
+			}
+		}
+
+		&_scrolltop {
+			transition: $transition_timeout;
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			z-index: 999;
+		}
+	}
+}

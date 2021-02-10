@@ -1,0 +1,22 @@
+@media only screen and (max-width: 600px) {
+	.#{$prefix} {
+		&_brand_badge {
+			$media_brand_badge: &;
+
+			margin: 0.5rem;
+
+
+
+			&_group {
+				flex-wrap: wrap;
+				margin-left: -0.5rem;
+				margin-right: -0.5rem;
+
+				#{$media_brand_badge}:first-child,
+				#{$media_brand_badge}:last-child {
+					margin: 0.5rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'JosefinSansSemiBoldItalic';
+    src: url('fonts/JosefinSansSemiBoldItalic.eot');
+    src: url('fonts/JosefinSansSemiBoldItalic.eot') format('embedded-opentype'),
+         url('fonts/JosefinSansSemiBoldItalic.woff2') format('woff2'),
+         url('fonts/JosefinSansSemiBoldItalic.woff') format('woff'),
+         url('fonts/JosefinSansSemiBoldItalic.ttf') format('truetype'),
+         url('fonts/JosefinSansSemiBoldItalic.svg#JosefinSansSemiBoldItalic') format('svg');
+}

@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1300px) {
+	.#{$prefix} {
+		&_card {
+			$media_card_selector: &;
+
+			&-lg {
+				padding-left: 30px;
+				padding-right: 30px;
+
+				#{$media_card_selector}_content {
+					padding: 0;
+				}
+			}
+		}
+	}
+}

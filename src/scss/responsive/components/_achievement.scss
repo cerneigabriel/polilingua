@@ -1,0 +1,16 @@
+@media only screen and (max-width: 800px) {
+	.#{$prefix} {
+		&_achievement {
+			margin: 0.5rem 0;
+
+			&_icon {
+				margin-right: 1rem;
+			}
+
+			&_group {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+	}
+}

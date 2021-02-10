@@ -1,0 +1,17 @@
+.#{$prefix} {
+    &_section {
+        max-width: 100%;
+        // overflow: hidden;
+        padding: 5rem 0;
+
+        &_title {
+            text-align: center;
+        }
+
+        &_description {
+            text-align: center;
+
+            margin-bottom: 3rem;
+        }
+    }
+}

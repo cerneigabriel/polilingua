@@ -1,0 +1,64 @@
+@media only screen and (max-width: 1100px) {
+	.#{$prefix} {
+		&_navbar {
+			.container {
+
+			}
+
+
+			&_toggler {
+				display: inline-flex;
+			}
+
+
+			&_nav {
+				position:       fixed;
+				top:            0;
+				left:           0;
+				right:          0;
+				bottom:         0;
+
+				box-shadow:     0 20px 60px rgba(62, 62, 62, 0.08);
+
+				transform:      translateX(-100%);
+
+				overflow:       hidden;
+
+				background:     $white_color;
+
+				display:        flex;
+				flex-direction: column;
+
+				font-size:      2rem;
+
+				transition:     $transition_timeout;
+
+
+				&.active {
+					transform: translateX(0);
+				}
+			}
+		}
+
+
+		&_nav {
+			&_item {
+				padding: 0.5rem 0.8rem;
+			}
+		}
+	}
+}
+
+
+@media only screen and (max-width: 600px) {
+	.#{$prefix} {
+		&_navbar {
+			padding-left: 1rem;
+			padding-right: 1rem;
+
+			&_brand {
+				padding-right: 3rem;
+			}
+		}
+	}
+}

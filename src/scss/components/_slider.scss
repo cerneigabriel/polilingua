@@ -1,0 +1,29 @@
+.slick-track {
+    padding: 30px;
+}
+
+.slick-slide {
+    > div {
+        padding: 0 1.5rem 1.5rem 1rem;
+    }
+}
+
+.#{$prefix} {
+    &_arrow {
+        padding: 0 1rem;
+        cursor: pointer;
+
+        &-next svg {
+            transform: scaleX(-1);
+        }
+
+
+        &_group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 0;
+        }
+    }
+}

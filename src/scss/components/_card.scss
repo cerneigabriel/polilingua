@@ -1,0 +1,139 @@
+.#{$prefix} {
+    &_card {
+        $card_selector: &;
+
+        position: relative;
+
+        box-shadow: 0 20px 60px rgba(62, 62, 62, 0.08);
+        background-color: #ffffff;
+        
+
+        &_title {
+            margin-bottom: 37px;
+        }
+
+        &_content {
+            padding: 8px;
+            padding-right: 30px;
+        }
+
+        &_subcontent {
+            padding: 8px;
+        }
+
+        &_subtitle {
+            margin-bottom: 8px;
+        }
+
+        &_description {
+            font-size: 15px;
+            line-height: 23px;
+            color: $grey_1_color;
+
+            margin-bottom: 3.8rem;
+        }
+
+        & {
+            padding: 40px 25px;
+            border-radius: 6px;
+
+            #{$card_selector} {
+                &_title {
+                    position: relative;
+                    
+                    &-highlight {
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: -25px;
+                            top: 0;
+                            bottom: 0;
+
+                            margin: auto;
+
+                            width: 3px;
+                            height: 46px;
+                            border-top-right-radius: 1px;
+                            border-bottom-right-radius: 1px;
+                            background-color: $primary_color;
+                        }
+                    }
+                }
+
+                &_description {
+                    margin-bottom: 3rem;
+                }
+            }
+        }
+
+        &-lg {
+            border-radius: 8px;
+            padding: 60px 66px;
+
+            #{$card_selector} {
+                &_title {
+                    margin-bottom: 37px;
+                }
+        
+                &_content {
+                    padding: 8px;
+                    padding-right: 30px;
+                }
+        
+                &_subcontent {
+                    padding: 8px;
+                }
+        
+                &_subtitle {
+                    margin-bottom: 8px;
+                }
+        
+                &_description {
+                    font-size: 15px;
+                    line-height: 23px;
+                    color: $grey_1_color;
+        
+                    margin-bottom: 3.8rem;
+                }
+            }
+        }
+
+        &-sm {
+            padding: 23px 26px;
+            border-radius: 6px;
+
+            #{$card_selector} {
+                &_title {
+                    position: relative;
+                    margin-bottom: 1rem;
+                    
+                    &-highlight {
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: -25px;
+                            top: 0;
+                            bottom: 0;
+
+                            margin: auto;
+
+                            width: 3px;
+                            height: 46px;
+                            border-top-right-radius: 1px;
+                            border-bottom-right-radius: 1px;
+                            background-color: $primary_color;
+                        }
+                    }
+                }
+
+                &_description {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        &-border {
+            box-shadow: 1px 2px 8px rgba($grey_3_color, 0.3);
+        }
+    }
+}

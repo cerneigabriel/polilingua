@@ -1,0 +1,59 @@
+.#{$prefix} {
+	&_accordion {
+		$accordion_selector: &;
+
+		display:             flex;
+		align-items:         center;
+		justify-content:     stretch;
+		flex-direction:      column;
+
+
+		&_header {
+
+		}
+
+
+		&_content {
+			display: none;
+		}
+
+
+		&_item {
+			position:         relative;
+			width:            100%;
+			padding:          10px 21px;
+			box-shadow:       0 20px 60px rgba(62, 62, 62, 0.08);
+			border-radius:    3px;
+			background-color: #FFFFFF;
+
+			margin-bottom:    1.2rem;
+
+
+			&:last-child {
+				margin: 0;
+			}
+
+
+			&::before {
+				content:                   "";
+
+				position:                  absolute;
+				top:                       0;
+				left:                      0;
+				bottom:                    0;
+				width:                     8px;
+				background-color:          #257FFC;
+
+				border-top-left-radius:    6px;
+				border-bottom-left-radius: 6px;
+			}
+
+
+			&[data-visible] {
+				#{$accordion_selector}_content {
+					display: block;
+				}
+			}
+		}
+	}
+}

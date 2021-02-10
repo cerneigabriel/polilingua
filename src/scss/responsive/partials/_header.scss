@@ -1,0 +1,18 @@
+@media only screen and (max-width: 1300px) {
+	.#{$prefix} {
+		&_header {
+			min-height: auto;
+			padding-bottom: 2.5rem;
+
+			&_img {
+				display: none;
+			}
+
+			&_content {
+				position: static;
+				margin-top: 10rem;
+				height: 100%;
+			}
+		}
+	}
+}

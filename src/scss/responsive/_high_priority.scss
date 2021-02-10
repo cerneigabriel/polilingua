@@ -1,0 +1,67 @@
+@media only screen and (max-width: 450px) {
+	body {
+		font-size: 14px;
+	}
+
+	small,
+	.#{$prefix}_small {
+		font-size: $mobile_small_size;
+	}
+
+	.#{$prefix}_small_p {
+		font-size: $mobile_small_p_size;
+	}
+
+	h6,
+	.#{$prefix}_h6 {
+		font-size: $mobile_h5_size;
+		line-height: $mobile_h5_size;
+	}
+
+	h5,
+	.#{$prefix}_h5 {
+		font-size: $mobile_h5_size;
+	}
+
+	p,
+	.#{$prefix}_p {
+		font-size: $mobile_p_size;
+	}
+
+	h4,
+	.#{$prefix}_h4 {
+		font-size: $mobile_h4_size;
+	}
+
+	h3,
+	.#{$prefix}_h3 {
+		font-size: $mobile_h3_size;
+	}
+
+	h2,
+	.#{$prefix}_h2 {
+		font-size: $mobile_h2_size;
+		margin-bottom: calc(#{$mobile_h2_size} - 0.5rem);
+	}
+
+	h1,
+	.#{$prefix}_h1 {
+		font-size: $mobile_h1_size;
+		font-weight: 600;
+		line-height: calc(#{$mobile_h1_size} + 0.5rem);
+		margin-bottom: calc(#{$mobile_h1_size} - 0.5rem);
+		color: $h1_color;
+	}
+
+	.#{$prefix}_text_bold {
+		font-weight: 600 !important
+	}
+
+	.#{$prefix}_text_regular {
+		font-weight: 400 !important;
+	}
+
+	.#{$prefix}_text_italic {
+		font-style: italic !important
+	}
+}

@@ -1,0 +1,107 @@
+// Class prefix
+$prefix:                      "pl";
+
+// Transitions
+$transition_timeout:          all 0.2s linear;
+
+// Colors
+$transparent_color:           transparent;
+$white_color:                 rgb(255, 255, 255);
+$primary_color:               rgb(37, 127, 252);
+
+$dark_color:                  rgb(36, 36, 36);
+$grey_1_color:                rgb(112, 112, 112);
+$grey_2_color:                rgb(153, 153, 153);
+$grey_3_color:                rgb(229, 229, 229);
+
+
+// Link button settings
+$pl_button_link_color:        rgba($primary_color, 0.8);
+$pl_button_link_color__hover: $primary_color;
+
+// Primary button settings
+$pl_button_primary_border:    $primary_color;
+$pl_button_primary_bg:        $primary_color;
+$pl_button_primary_color:     $white_color;
+
+$pl_button_primary_border__hover: $primary_color;
+$pl_button_primary_bg__hover:     $transparent_color;
+$pl_button_primary_color__hover:  $primary_color;
+
+// Secondary button settings
+$pl_button_secondary_border: $primary_color;
+$pl_button_secondary_bg: $transparent_color;
+$pl_button_secondary_color: $primary_color;
+
+$pl_button_secondary_border__hover: $primary_color;
+$pl_button_secondary_bg__hover: $primary_color;
+$pl_button_secondary_color__hover: $white_color;
+
+// Grey button settings
+$pl_button_grey_border: rgba($grey_2_color, 0.4);
+$pl_button_grey_bg: $transparent_color;
+$pl_button_grey_color: rgba($grey_2_color, 0.4);
+
+$pl_button_grey_border__hover: $primary_color;
+$pl_button_grey_bg__hover: $primary_color;
+$pl_button_grey_color__hover: $white_color;
+
+// Collapse button settings
+$pl_button_collapse_icon_width: 6px;
+$pl_button_collapse_icon_height: 1px;
+$pl_button_collapse_width: 21px;
+$pl_button_collapse_height: 21px;
+
+$pl_button_collapse_border: $grey_1_color;
+$pl_button_collapse_bg: $transparent_color;
+$pl_button_collapse_color: $grey_1_color;
+
+$pl_button_collapse_border__hover: $primary_color;
+$pl_button_collapse_bg__hover: $transparent_color;
+$pl_button_collapse_color__hover: $primary_color;
+
+
+// Typography sizes
+$h1_size: 3.25rem;
+$h2_size: 2rem;
+$h3_size: 1.5rem;
+$h4_size: 1.125rem;
+$h5_size: 1rem;
+$h6_size: 1rem;
+$p_size: 1rem;
+$small_p_size: 0.875rem;
+$small_size: 0.8125rem;
+
+
+$mobile_h1_size: calc(#{$h1_size} - 1rem);
+$mobile_h2_size: calc(#{$h2_size} - 0.1rem);
+$mobile_h3_size: calc(#{$h3_size} - 0.3rem);
+$mobile_h4_size: calc(#{$h4_size} - 0.1rem);
+$mobile_h5_size: calc(#{$h5_size} - 0.1rem);
+$mobile_h6_size: calc(#{$h6_size} - 0.1rem);
+$mobile_p_size: calc(#{$p_size} - 0.1rem);
+$mobile_small_p_size: calc(#{$small_p_size} - 0.1rem);
+$mobile_small_size: calc(#{$small_size} - 0.1rem);
+
+// Typography Colors
+$h1_color: $dark_color;
+$h2_color: $dark_color;
+$h3_color: $dark_color;
+$h4_color: $dark_color;
+$h5_color: $dark_color;
+$h6_color: $grey_1_color;
+$p_color: $grey_1_color;
+$small_p_color: $grey_1_color;
+$small_color: $grey_2_color;
+
+// Brand Badge
+$pl_brand_badge_border: $grey_3_color;
+$pl_brand_badge_bg: $transparent_color;
+$pl_brand_badge_color: $grey_1_color;
+
+
+// Form Settings
+$label_size: 0.9375rem;
+$label_color: $dark_color;
+
+$form_control_placeholder: rgba($grey_2_color, 0.4);;

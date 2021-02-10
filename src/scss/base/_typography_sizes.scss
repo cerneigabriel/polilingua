@@ -1,0 +1,80 @@
+small,
+.#{$prefix}_small {
+    font-size: $small_size;
+    font-weight: 400;
+    color: $small_color;
+}
+
+.#{$prefix}_small_p {
+    font-size: $small_p_size;
+    font-weight: 400;
+    color: $small_p_color;
+}
+
+h6,
+.#{$prefix}_h6 {
+    font-size: $h6_size;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: $h6_color;
+}
+
+h5,
+.#{$prefix}_h5 {
+    font-size: $h5_size;
+    font-weight: 600;
+    line-height: 1.5rem;
+    color: $h5_color;
+}
+
+p,
+.#{$prefix}_p {
+    font-size: $p_size;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: $p_color;
+}
+
+h4,
+.#{$prefix}_h4 {
+    font-size: $h4_size;
+    font-weight: 600;
+    color: $h4_color;
+    line-height: 30px;
+}
+
+h3,
+.#{$prefix}_h3 {
+    font-size: $h3_size;
+    font-weight: 600;
+    color: $h3_color;
+}
+
+h2,
+.#{$prefix}_h2 {
+    font-size: $h2_size;
+    font-weight: 600;
+    color: $h2_color;
+    margin-bottom: 24px;
+}
+
+h1,
+.#{$prefix}_h1 {
+    font-size: $h1_size;
+    font-weight: 600;
+    line-height: 3.75rem;
+    margin-bottom: 1.8rem;
+    color: $h1_color;
+}
+
+.#{$prefix}_text_bold {
+    font-weight: 600 !important
+}
+
+.#{$prefix}_text_regular {
+    font-weight: 400 !important;
+}
+
+.#{$prefix}_text_italic {
+    font-style: italic !important
+}

@@ -1,0 +1,46 @@
+.#{$prefix} {
+    &_achievement {
+        $achievement_selector: &;
+
+        margin: 0.5rem 2rem;
+
+        display: flex;
+        align-items: stretch;
+
+        &_group {
+            display: flex;
+            align-items: center;
+
+            #{$achievement_selector} {
+                &:last-child {
+                    margin-right: 0;
+                }
+                
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &_icon {
+            font-size: 18px;
+            margin-right: 0.5rem;
+            color: $primary_color;
+
+            &::before {
+                color: $primary_color;
+            }
+        }
+
+        &_text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-style: italic;
+            color: $grey_1_color;
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+}

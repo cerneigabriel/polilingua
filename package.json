@@ -1,0 +1,53 @@
+{
+  "name": "polilingua",
+  "version": "1.0.0",
+  "description": "Create new design for polilingua.com",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cernei Gabriel - Polilingua",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "countup.js": "^2.0.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "jquery-migrate": "^3.3.2",
+    "jquery-validation": "^1.19.3",
+    "material-design-icons": "^3.0.1",
+    "merge-stream": "^2.0.0",
+    "node-sass": "^5.0.0",
+    "readmore-js": "^3.0.0-beta-1",
+    "scrollnav": "^3.0.2",
+    "slick-slider": "^1.8.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.26.14",
+    "countup": "^1.8.2",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.1.0",
+    "prettier": "^1.19.1",
+    "webpack": "^4.46.0",
+    "webpack-stream": "^5.2.1"
+  }
+}

@@ -9,12 +9,13 @@
 
 
 		&_header {
-
+			padding-left: 1rem;
 		}
 
 
 		&_content {
 			display: none;
+			padding: 1rem;
 		}
 
 
@@ -49,7 +50,7 @@
 			}
 
 
-			&[data-visible] {
+			&[data-visible="true"] {
 				#{$accordion_selector}_content {
 					display: block;
 				}

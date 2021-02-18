@@ -6,10 +6,10 @@ const browsersync = require("browser-sync").create();
 const cp = require("child_process");
 const cssnano = require("cssnano");
 const del = require("del");
+const concat = require("gulp-concat");
 const eslint = require("gulp-eslint");
 const gulp = require("gulp");
 const { src, dest } = require("gulp");
-const imagemin = require("gulp-imagemin");
 const newer = require("gulp-newer");
 const plumber = require("gulp-plumber");
 const babel = require("gulp-babel");
@@ -22,26 +22,37 @@ const webpackstream = require("webpack-stream");
 const minify = require("gulp-minify");
 const merge = require("merge-stream");
 
-// BrowserSync
 function browserSync(done) {
     browsersync.init({
         server: {
             baseDir: "./public/",
         },
+        files: [
+            "src/**/*"
+        ],
         port: 3000,
     });
     done();
 }
 
-// BrowserSync Reload
 function browserSyncReload(done) {
     browsersync.reload();
     done();
 }
 
-// Clean src
 function clean() {
     return del(["./public/src/"]);
+}
+
+function imagesSyncOptimize () {
+    del(["./public/src/img/"]);
+
+    return (
+        gulp
+            .src("./src/img/**/*")
+            .pipe(newer("./public/src/img"))
+            .pipe(gulp.dest("./public/src/img"))
+    );
 }
 
 // Optimize Images
@@ -52,21 +63,6 @@ function images() {
         gulp
             .src("./src/img/**/*")
             .pipe(newer("./public/src/img"))
-            // .pipe(
-            // 	imagemin([
-            // 		imagemin.gifsicle({ interlaced: true }),
-            // 		imagemin.jpegtran({ progressive: true }),
-            // 		imagemin.optipng({ optimizationLevel: 5 }),
-            // 		imagemin.svgo({
-            // 			plugins: [
-            // 				{
-            // 					removeViewBox: false,
-            // 					collapseGroups: true
-            // 				}
-            // 			]
-            // 		})
-            // 	])
-            // )
             .pipe(gulp.dest("./public/src/img"))
     );
 }
@@ -91,70 +87,37 @@ function css() {
         .pipe(browsersync.stream());
 }
 
-// Lint scripts
 function scriptsLint() {
     return gulp.src(["./src/js/**/*", "./gulpfile.js"]);
-    // .pipe(plumber())
-    // .pipe(eslint())
-    // .pipe(eslint.format())
-    // .pipe(eslint.failAfterError())
-}
-
-function clearVendor() {
-    return del(["./public/src/vendor/"]);
-}
-
-function vendor() {
-    const vendor = {
-        slick: gulp
-            .src("./node_modules/slick-slider/**/*")
-            .pipe(newer("./public/src/vendor"))
-            .pipe(gulp.dest("./public/src/vendor/slick-slider")),
-
-        jquery: gulp
-            .src([
-                "./node_modules/jquery/**/*",
-                "!./node_modules/jquery/dist/core.js",
-            ])
-            .pipe(newer("./public/src/vendor"))
-            .pipe(gulp.dest("./public/src/vendor/jquery")),
-
-        jquery_validation: gulp
-            .src("./node_modules/jquery-validation/**/*")
-            .pipe(newer("./public/src/vendor"))
-            .pipe(gulp.dest("./public/src/vendor/jquery-validation")),
-
-        jquery_migrate: gulp
-            .src("./node_modules/jquery-migrate/**/*")
-            .pipe(newer("./public/src/vendor"))
-            .pipe(gulp.dest("./public/src/vendor/jquery-migrate")),
-
-        readmore_js: gulp
-            .src("./node_modules/readmore-js/**/*")
-            .pipe(newer("./public/src/vendor"))
-            .pipe(gulp.dest("./public/src/vendor/readmore-js"))
-    };
-
-    return merge(
-        vendor.slick,
-        vendor.jquery,
-        vendor.jquery_validation,
-        vendor.readmore_js
-    );
 }
 
 // Transpile, concatenate and minify scripts
 function scripts() {
     return (
         gulp
-            .src(["./src/js/app.js"])
-            .pipe(plumber())
+            .src([
+                "./node_modules/jquery/dist/jquery.js",
+                "./node_modules/jquery-validation/dist/jquery.validate.js",
+                "./node_modules/jquery-validation/dist/additional-methods.js",
+                "./node_modules/slick-slider/slick/slick.js",
+                "./node_modules/readmore-js/dist/readmore.js",
+                "./node_modules/intl-tel-input/build/js/intlTelInput-jquery.js",
+                "./node_modules/intl-tel-input/build/js/utils.js",
+                "./node_modules/select2/dist/js/select2.full.js",
+                "./node_modules/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js",
+                "./node_modules/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js",
+                "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js",
+                "./node_modules/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js",
+                "./node_modules/filepond/dist/filepond.js",
+                "./node_modules/jquery-filepond/filepond.jquery.js",
+                "./src/js/app.js"
+            ])
             .pipe(
                 babel({
                     presets: [["@babel/env"]],
                 })
             )
-            // .pipe(webpackstream(webpackconfig, webpack))
+            // .pipe(concat('app.js'))
             .pipe(
                 minify({
                     ext: {
@@ -179,11 +142,10 @@ function watchFiles() {
 
 // define complex tasks
 // const js = gulp.series(scriptsLint, scripts);
-const build = gulp.series(clean, vendor, css, images, fonts, scripts);
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
+const build = gulp.series(clean, css, imagesSyncOptimize, fonts, scripts);
+const watch = gulp.series(clean, css, images, fonts, scripts, gulp.parallel(watchFiles, browserSync));
 const serve = browserSync;
 
-exports.vendor = gulp.series(clearVendor, vendor);
 exports.build = build;
 exports.watch = watch;
 exports.serve = serve;

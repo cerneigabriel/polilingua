@@ -1,59 +1,121 @@
 "use strict";
 
-var _services_slick_slide;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var startUploader = function startUploader(input) {
-  $(input).click();
-};
-
 var app = {
   config: {
-    services_slick_slider: (_services_slick_slide = {
+    services_slick_slider: {
       centerMode: true,
       centerPadding: "200px",
       slidesToShow: 3,
       arrows: true,
-      dots: false
-    }, _defineProperty(_services_slick_slide, "centerMode", true), _defineProperty(_services_slick_slide, "prevArrow", $(".prev-arrow")), _defineProperty(_services_slick_slide, "nextArrow", $(".next-arrow")), _defineProperty(_services_slick_slide, "responsive", [{
-      breakpoint: 1600,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: "130px",
-        slidesToShow: 2
-      }
-    }, {
-      breakpoint: 1300,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: "130px",
-        slidesToShow: 1
-      }
-    }, {
-      breakpoint: 900,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: "100px",
-        slidesToShow: 1
-      }
-    }, {
-      breakpoint: 800,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: "0",
-        slidesToShow: 1
-      }
-    }]), _services_slick_slide)
+      dots: false,
+      prevArrow: $(".prev-arrow"),
+      nextArrow: $(".next-arrow"),
+      responsive: [{
+        breakpoint: 1600,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "130px",
+          slidesToShow: 2
+        }
+      }, {
+        breakpoint: 1300,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "130px",
+          slidesToShow: 1
+        }
+      }, {
+        breakpoint: 900,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "100px",
+          slidesToShow: 1
+        }
+      }, {
+        breakpoint: 800,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "0",
+          slidesToShow: 1
+        }
+      }]
+    }
+  },
+  get_free_quote: function get_free_quote() {
+    $(window).on("load", function () {
+      var input = $("#phone_number[type=\"tel\"]").intlTelInput({
+        initialCountry: "auto",
+        geoIpLookup: function geoIpLookup(success) {
+          $.get("https://ipapi.co/json/").then(function (response) {
+            var countryCode = response && response.country ? response.country : "us";
+            success(countryCode);
+          });
+        },
+        customPlaceholder: function customPlaceholder(selectedCountryPlaceholder) {
+          return "e.g. " + selectedCountryPlaceholder;
+        }
+      });
+      input.on("keyup", function () {
+        $("[name=\"phone_number\"]").val($(this).intlTelInput("getNumber"));
+      });
+      FilePond.registerPlugin(FilePondPluginFileEncode, FilePondPluginFileValidateSize, FilePondPluginFileValidateType, FilePondPluginImagePreview);
+      $(".pl_form_control.file-pond[type=\"file\"]").filepond({
+        allowFileEncode: true,
+        maxTotalFileSize: 40000000,
+        acceptedFileTypes: ["image/*", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.presentationml.slideshow", "text/plain", "application/pdf", "video/mp4", "video/x-m4v", "video/*", "zip", "application/octet-stream", "application/zip", "application/x-zip", "application/x-zip-compressed", ".ai", ".psd", ".xd"]
+      });
+      $("select").select2();
+      jQuery.validator.addMethod("intlTelNumber", function (value, element) {
+        return this.optional(element) || $(element).intlTelInput("isValidNumber");
+      }, "Please enter a valid International Phone Number");
+      $("#get_free_quote_form").validate({
+        errorElement: "small",
+        errorClass: "pl_form_control-error",
+        rules: {
+          "full_name": {
+            required: true
+          },
+          "email": {
+            required: true,
+            email: true
+          },
+          "company_name": {
+            required: true
+          },
+          "phone_number": {
+            required: true,
+            intlTelNumber: true
+          },
+          "source_language": {
+            required: true
+          },
+          "target_language": {
+            required: true
+          },
+          "notes": {
+            required: true
+          }
+        }
+      });
+      $(document).on("submit", "#get_free_quote_form", function (event) {
+        console.log($(this).valid());
+
+        if ($(this).valid()) {
+          $("#loading").show();
+        } else {
+          event.preventDefault();
+        }
+      });
+    });
   },
   navigationSpyScroll: function navigationSpyScroll() {
     var nav = $("#navbar");
     var navHeight = nav.outerHeight();
-    nav.find("[navbar-toggler]").click(function () {
+    nav.find(".navbar-toggler").click(function () {
       $(".pl_navbar_nav").toggleClass("active");
     });
     $('a[href*="#"]:not([href="#"])').click(function (event) {
@@ -99,11 +161,12 @@ var app = {
       var lastSection = sections[sections.length - 1]; // get last section
 
       var lastSectionTooSmall = $(lastSection).height() < $(window).height();
+      var lastSectionInView;
 
       if (lastSectionTooSmall) {
         var lastSectionTopPos = $(lastSection).offset().top;
         var lastSectionTriggerPos = $(window).height() + $(document).scrollTop() - $(lastSection).height() / 4;
-        var lastSectionInView = lastSectionTriggerPos > lastSectionTopPos;
+        lastSectionInView = lastSectionTriggerPos > lastSectionTopPos;
       }
 
       if (lastSectionTooSmall && lastSectionInView) {
@@ -126,22 +189,22 @@ var app = {
     }
   },
   accordion: function accordion() {
-    $(document).on("click", "[data-accordion-toggler]", function () {
+    $(document).on("click", ".accordion-toggler", function () {
       var toggler = $(this);
       var accordion = $(toggler.data("accordion"));
       var accordion_group = accordion.parent(".pl_accordion");
       var accordions = accordion_group.find(".pl_accordion_item");
-      accordions.removeAttr("data-visible");
-      accordions.find("[data-accordion-toggler]").removeClass("pl_button_collapse-close");
-      accordions.find("[data-accordion-toggler]").addClass("pl_button_collapse-open");
-      console.log(accordion[0].hasAttribute("data-visible"));
+      accordions.attr("data-visible", false);
+      accordions.find(".accordion-toggler").removeClass("pl_button_collapse-close");
+      accordions.find(".accordion-toggler").addClass("pl_button_collapse-open");
 
-      if (accordion[0].hasAttribute("data-visible")) {
-        accordion.removeAttr("data-visible");
+      if (accordion.data("visible") === true) {
+        accordion.attr("data-visible", false);
         toggler.removeClass("pl_button_collapse-close");
         toggler.addClass("pl_button_collapse-open");
       } else {
-        accordion.attr("data-visible", "visible");
+        console.log(accordion.data("visible"));
+        accordion.attr("data-visible", true);
         toggler.removeClass("pl_button_collapse-open");
         toggler.addClass("pl_button_collapse-close");
       }
@@ -152,28 +215,29 @@ var app = {
 
     this.navigationSpyScroll(); // Start accordion component
 
-    this.accordion(); // Generate services slick slider
+    this.accordion(); // Start get free quote form scripts
+
+    this.get_free_quote(); // Generate services slick slider
 
     $("#pl_services").slick(slick_options); // Remove drag ability for images
 
     $("img").attr("draggable", false); // Register read more elements
 
-    var readmore = new Readmore(document.querySelectorAll(".pl_readmore"), {
+    new Readmore(document.querySelectorAll(".pl_readmore"), {
       speed: 500,
       collapsedHeight: "71px",
       defaultHeight: "71px",
-      moreLink: "<a href=\"#\" class=\"pl_button pl_button_link\">Read more <i class=\"fas fa-chevron-down\"></i></a>",
-      lessLink: "<a href=\"#\" class=\"pl_button pl_button_link\">Close <i class=\"fas fa-chevron-up\"></i></a>"
-    }); // readmore.toggle();
+      moreLink: "<a href=\"#\" class=\"pl_button pl_button_link px-0 pb-0 d-inline-block\">Read more <i class=\"fas fa-chevron-down\"></i></a>",
+      lessLink: "<a href=\"#\" class=\"pl_button pl_button_link px-0 pb-0 d-inline-block\">Close <i class=\"fas fa-chevron-up\"></i></a>"
+    });
 
     if ($(document).width() <= 450) {
-      console.log(document.getElementById("pl_readmore_languages"));
-      var readmore_languages = new Readmore(document.getElementById("pl_readmore_languages"), {
+      new Readmore(document.getElementById("pl_readmore_languages"), {
         speed: 1000,
         collapsedHeight: "250px",
         defaultHeight: "250px",
-        moreLink: "<a href=\"#\" class=\"pl_button pl_button_link\">Read more <i class=\"fas fa-chevron-down\"></i></a>",
-        lessLink: "<a href=\"#\" class=\"pl_button pl_button_link\">Close <i class=\"fas fa-chevron-up\"></i></a>"
+        moreLink: "<a href=\"#\" class=\"pl_button pl_button_link d-inline-block\">Read more <i class=\"fas fa-chevron-down\"></i></a>",
+        lessLink: "<a href=\"#\" class=\"pl_button pl_button_link d-inline-block\">Close <i class=\"fas fa-chevron-up\"></i></a>"
       });
     }
   },

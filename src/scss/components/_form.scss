@@ -2,24 +2,24 @@
 	&_form {
 		$form_selector: &;
 
+
 		&_group {
-			display:        flex;
-			align-items:    flex-start;
-			flex-direction: column;
 			margin-bottom:  0.7rem;
 		}
 
 
 		&_input_group {
-			width: 100%;
-			display: flex;
-			align-items: stretch;
+			width:           100%;
+			display:         flex;
+			align-items:     stretch;
 			justify-content: stretch;
 
+
 			#{$form_selector}_control {
-				padding: 1.2rem !important;
-				background-color: #f5f5f5 !important;
-				color: $grey_2_color !important;
+				padding:          1.2rem !important;
+				background-color: #F5F5F5 !important;
+				color:            $grey_2_color !important;
+
 
 				&::placeholder {
 					color:       $grey_2_color !important;
@@ -27,11 +27,12 @@
 				}
 			}
 
+
 			> :last-child {
 				border-bottom-left-radius: 0;
-				border-top-left-radius: 0;
-				padding-left: 2rem;
-				padding-right: 2rem;
+				border-top-left-radius:    0;
+				padding-left:              2rem;
+				padding-right:             2rem;
 			}
 		}
 
@@ -47,7 +48,9 @@
 		&_control {
 			width: 100%;
 
-			&:not([type="file"]):not([type="checkbox"]):not([type="radio"]) {
+			color: $primary_color;
+
+			&:not([type="file"], [type="checkbox"], [type="radio"]) {
 				border:        0;
 				background:    none;
 				border-bottom: 1px solid #E5E5E5;
@@ -62,63 +65,86 @@
 			}
 
 
+			&[type="tel"] {
+				padding-left: 1rem;
+			}
+
+			&-invalid {
+				border-bottom-color: #DB2626;
+				border-bottom-width: 2px;
+			}
+
+			&-error {
+				color: #d92525;
+			}
+
+
 			&[type="file"] {
 				width: 100%;
 				color: $pl_button_grey_color;
-			}
-
-			&[type="file"]::-webkit-file-upload-button {
-				outline:          0;
-				background:       none;
-				cursor:           pointer;
-				padding:          0.7rem 0.8rem;
-				font-size:        14px;
-				font-weight:      400;
-				border-radius:    4px;
-				transition:       $transition_timeout;
-
-				border:           2px solid $pl_button_grey_border;
-				background-color: $pl_button_grey_bg;
-				color:            $pl_button_grey_color;
-				margin-right:     1rem;
-
-				font-family:      "Josefin Sans", sans-serif;
+				border-bottom: 0;
 
 
-				&:hover {
-					border:           2px solid $pl_button_grey_border__hover;
-					background-color: $pl_button_grey_bg__hover;
-					color:            $pl_button_grey_color__hover;
+				&::-webkit-file-upload-button {
+					outline:          0;
+					background:       none;
+					cursor:           pointer;
+					padding:          0.7rem 0.8rem;
+					font-size:        0.875rem;
+					font-weight:      400;
+					border-radius:    4px;
+					transition:       $transition_timeout;
+
+					border:           2px solid $pl_button_grey_border;
+					background-color: $pl_button_grey_bg;
+					color:            $pl_button_grey_color;
+					margin-right:     1rem;
+
+					font-family:      "Josefin Sans", sans-serif;
+
+
+					&:hover {
+						border:           2px solid $pl_button_grey_border__hover;
+						background-color: $pl_button_grey_bg__hover;
+						color:            $pl_button_grey_color__hover;
+					}
 				}
-			}
-
-			&[type="file"]::file-selector-button {
-				outline:          0;
-				background:       none;
-				cursor:           pointer;
-				padding:          0.7rem 0.8rem;
-				font-size:        14px;
-				font-weight:      400;
-				border-radius:    4px;
-				transition:       $transition_timeout;
-
-				border:           2px solid $pl_button_grey_border;
-				background-color: $pl_button_grey_bg;
-				color:            $pl_button_grey_color;
-				margin-right:     1rem;
-
-				font-family:      "Josefin Sans", sans-serif;
 
 
-				&:hover {
-					border:           2px solid $pl_button_grey_border__hover;
-					background-color: $pl_button_grey_bg__hover;
-					color:            $pl_button_grey_color__hover;
+				&::file-selector-button {
+					outline:          0;
+					background:       none;
+					cursor:           pointer;
+					padding:          0.7rem 0.8rem;
+					font-size:        0.875rem;
+					font-weight:      400;
+					border-radius:    4px;
+					transition:       $transition_timeout;
+
+					border:           2px solid $pl_button_grey_border;
+					background-color: $pl_button_grey_bg;
+					color:            $pl_button_grey_color;
+					margin-right:     1rem;
+
+					font-family:      "Josefin Sans", sans-serif;
+
+
+					&:hover {
+						border:           2px solid $pl_button_grey_border__hover;
+						background-color: $pl_button_grey_bg__hover;
+						color:            $pl_button_grey_color__hover;
+					}
 				}
 			}
 		}
 	}
 }
+
+select.pl_form_control {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
 
 textarea {
 	max-width: 100%;

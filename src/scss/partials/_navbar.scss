@@ -56,17 +56,15 @@
 
         &.sticky {
             padding: 0;
+            background-color: $white_color;
+            box-shadow: 0 20px 60px rgba(62, 62, 62, 0.08);
 
             #{$navbar_selector}_brand_logo {
                 height: 38px
             }
 
             .container {
-                background-color: $white_color;
-                padding: 1.2rem 1.7rem;
-                border-bottom-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-                box-shadow: 0 20px 60px rgba(62, 62, 62, 0.08);
+                padding: 0.5rem 1.7rem;
 
 
                 &::before,
@@ -99,7 +97,6 @@
 
         &_item {
             position: relative;
-            padding: 0.5rem 0.8rem;
             transition: $transition_timeout;
 
             &.active,
@@ -122,7 +119,9 @@
         &_link {
             font-size: 0.9375rem;
             font-weight: 400;
-            color: #222222;
+            padding: 0.5rem 0.8rem;
+            display: inline-block;
+            color: $dark_color;
             transition: $transition_timeout;
 
             &::after {

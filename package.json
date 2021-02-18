@@ -11,8 +11,15 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "countup.js": "^2.0.7",
+    "filepond": "^4.25.1",
+    "filepond-plugin-file-encode": "^2.1.9",
+    "filepond-plugin-file-validate-size": "^2.2.2",
+    "filepond-plugin-file-validate-type": "^1.2.5",
+    "filepond-plugin-image-preview": "^4.6.5",
     "font-awesome": "^4.7.0",
+    "intl-tel-input": "^17.0.11",
     "jquery": "^3.5.1",
+    "jquery-filepond": "^1.0.0",
     "jquery-migrate": "^3.3.2",
     "jquery-validation": "^1.19.3",
     "material-design-icons": "^3.0.1",
@@ -20,6 +27,7 @@
     "node-sass": "^5.0.0",
     "readmore-js": "^3.0.0-beta-1",
     "scrollnav": "^3.0.2",
+    "select2": "^4.1.0-rc.0",
     "slick-slider": "^1.8.2"
   },
   "devDependencies": {
@@ -38,6 +46,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-eslint": "^6.0.0",
     "gulp-imagemin": "^6.2.0",
     "gulp-minify": "^3.1.0",

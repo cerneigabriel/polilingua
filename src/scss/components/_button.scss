@@ -163,6 +163,11 @@
 			align-items:      center;
 			justify-content:  center;
 
+			&-sm {
+				width:            30px;
+				height:           30px;
+				font-size:        0.8rem;
+			}
 
 			&:hover {
 				border:           2px solid $pl_button_secondary_border__hover;

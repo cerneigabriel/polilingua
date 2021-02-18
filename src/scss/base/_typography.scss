@@ -8,11 +8,11 @@
 
 // JosefinSans - Medium 500
 @include font-face('Josefin Sans', '../fonts/Medium/JosefinSansMedium', 500, normal, (eot, woff2, woff, ttf, svg));
-@include font-face('Josefin Sans', '../fonts/MediumItalic/JosefinSansMediumItalic', 500, italic, (eot, woff2, woff, ttf, svg));
+//@include font-face('Josefin Sans', '../fonts/MediumItalic/JosefinSansMediumItalic', 500, italic, (eot, woff2, woff, ttf, svg));
 
 // JosefinSans - Regular 400
 @include font-face('Josefin Sans', '../fonts/Regular/JosefinSansRegular', 400, normal, (eot, woff2, woff, ttf, svg));
-@include font-face('Josefin Sans', '../fonts/Italic/JosefinSansItalic', 400, italic, (eot, woff2, woff, ttf, svg));
+//@include font-face('Josefin Sans', '../fonts/Italic/JosefinSansItalic', 400, italic, (eot, woff2, woff, ttf, svg));
 
 //// JosefinSans - Light 300
 //@include font-face('Josefin Sans', '../fonts/Light/JosefinSansLight', 300, normal, (eot, woff2, woff, ttf, svg));
